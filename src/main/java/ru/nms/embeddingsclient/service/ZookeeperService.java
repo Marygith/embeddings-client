@@ -32,11 +32,10 @@ public class ZookeeperService {
     @Value("${zookeeper.address}")
     private String zookeeperAddress;
 
-    private  ServiceProvider<MasterServiceMeta> serviceProvider;
+    private ServiceProvider<MasterServiceMeta> serviceProvider;
 
     @PostConstruct
-    private void init()
-    {
+    private void init() {
         JsonInstanceSerializer<MasterServiceMeta> serializer = new JsonInstanceSerializer<MasterServiceMeta>(MasterServiceMeta.class);
 
         CuratorFramework client = CuratorFrameworkFactory.newClient(zookeeperAddress, new ExponentialBackoffRetry(sleepTimeInMillis, maxRetries));
@@ -62,6 +61,7 @@ public class ZookeeperService {
             throw new RuntimeException(e);
         }
     }
+
     public ServiceInstance<MasterServiceMeta> findMainServerInstance() throws Exception {
         return serviceProvider.getInstance(); //default provider strategy - round robin
     }

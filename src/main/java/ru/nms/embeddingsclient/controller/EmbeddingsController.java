@@ -5,8 +5,8 @@ import org.apache.curator.x.discovery.ServiceInstance;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import ru.nms.embeddingsclient.model.Embedding;
 import ru.nms.embeddingsclient.service.EmbeddingService;
+import ru.nms.embeddingslibrary.model.Embedding;
 import ru.nms.embeddingslibrary.model.MasterServiceMeta;
 
 @RestController
@@ -15,7 +15,7 @@ public class EmbeddingsController {
 
     private final EmbeddingService embeddingService;
 
-    @GetMapping("/embedding/{id}")
+    @GetMapping("/embeddings/{id}")
     public Embedding getEmbedding(@PathVariable int id) {
         return embeddingService.getEmbedding(id);
     }
