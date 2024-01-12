@@ -1,6 +1,6 @@
 # Service for providing static entry point to embeddings retrieval project
 
-This project provides endpoint **/embeddings/{id}**, all incoming requests are forwarded to the available master(via RR algo).
+This project provides endpoint **/embeddings/{id}**, all incoming requests are forwarded to the available [master](https://github.com/Marygith/embedding-master-service)(via RR algo).
 This functionality is enabled via Apache Curator library. 
 
 ## Requirements
